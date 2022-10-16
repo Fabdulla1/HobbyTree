@@ -1,4 +1,4 @@
-package types;
+package tests;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,7 +17,7 @@ public class Profile {
     private Set<String> _interests;
     private List<Post> _posts;
 
-    Profile(String name, String birthday, String number, Address address, boolean status) {
+    public Profile(String name, String birthday, String number, Address address, boolean status) {
         _name = name;
         _birthday = birthday;
         phoneNumber = number;

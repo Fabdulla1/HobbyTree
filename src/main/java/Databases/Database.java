@@ -1,8 +1,8 @@
 package Databases;
 
 import Exceptions.UsernameAlreadyExists;
-import types.Post;
-import types.Profile;
+import tests.Post;
+import tests.Profile;
 
 import java.util.List;
 import java.util.Map;

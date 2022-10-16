@@ -1,11 +1,11 @@
-package Service;
+package tests.Service;
 
 import Databases.Database;
 import Services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import types.Post;
-import types.Profile;
+import tests.Post;
+import tests.Profile;
 
 import java.util.ArrayList;
 import java.util.HashMap;

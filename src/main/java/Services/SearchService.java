@@ -1,8 +1,8 @@
 package Services;
 
 import Databases.Database;
-import types.Post;
-import types.Profile;
+import tests.Post;
+import tests.Profile;
 
 import java.util.ArrayList;
 import java.util.List;

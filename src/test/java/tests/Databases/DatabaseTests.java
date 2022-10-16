@@ -1,10 +1,10 @@
-package Databases;
+package tests.Databases;
 
-import Services.AccountService;
+import Databases.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import types.Post;
-import types.Profile;
+import tests.Post;
+import tests.Profile;
 
 import java.util.ArrayList;
 import java.util.HashMap;

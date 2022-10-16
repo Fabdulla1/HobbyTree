@@ -1,6 +1,8 @@
-package types;
+package tests.types;
 
 import org.junit.jupiter.api.Test;
+import tests.Address;
+import tests.Post;
 
 import java.time.LocalDateTime;
 

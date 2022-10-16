@@ -1,7 +1,6 @@
 package Services;
 
 import Databases.Database;
-import types.Profile;
 
 public class AccountService {
 
