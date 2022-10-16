@@ -1,56 +1,86 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+class DataBase {
+    -allUserNames: Map<UserName:String, Passcode:String>
+    -allPofiles: map<UserName:String, profile:Profile>
+    -allPosts: Map<Posts>
+
+    + addUsers()
+    + addPost()
+    + removeUsers()
+    + removePost()
+}
+
 class Profile {
+    - UserName
+    - Passcode
+
     - name:String
     - dob:String
     - phone:String
     - address:Address
     - visibility:Boolean
     - Friends:List<Profiles>
-    - Interests:List<Interestgi
+    - Interests:Set<String>
+    - Posts:List<Post>
 
-    + addFriend():
-    + removeFriend():
+    + addFriend(profile: Profile):
+    + removeFriend(profile: Profile):
+    + addPost(post: Post):
+    + removePost(post: Post):
+    + addInterest(interest: String);
+    + removeInterest(interest: String);
 
 }
 
-class Interest {
-    - action:Action
+class Post {
+    - username:String
+    - date:String
+    - title:String
+    - interests:String
+    - description:String
+    - Photo:Photo
     - address:Address
-    - review:Review
-
-    + getFriendsFromActions():List<profile>
-    + getFriendsFromAddress():List<profile>
 }
 
 class Address {
-    + code:String
-    + city:String
-    + state:String
-    + Country:String
-    + zipcode:String
+    - buildingNumber: String
+    - streetName: String
+    - aptNumber: String
+    - city: String
+    - state: String
+    - country: String
+    - zipCode: String
+}
+
+class AccountService {
+    - dataBase: Database
+
+    + createPost(1,2,3,4,5):
+
+    + LogIn()
+    + LogOut()
+    + CreateAccount()
+}
+
+class SearchService {
+    + getPostByWordSearch(words: String):List<Post>
+    + getPostsByFriends():List<Post>
+    + getPostByDate():List<Post>
+    + getByOnlyCategory(type:String):List<Post>
+    + getPostByUsername(type:String):List<Post>
 
 }
 
-class Action {
-    type:String
-    description: String
-}
+AccountService *- DataBase
 
-class Review {
-    review:String
-}
+DataBase *-- Profile
+DataBase *-- Post
 
-class App {}
-class SignUpService {}
-
-Profile *-- Interest
+Profile *- Post
 Profile *-- Address
 
-Interest *-- Address
-Interest *-- Action
-Interest *-- Review
-
+Post *- Address
 
 @enduml
