@@ -1,4 +1,4 @@
-package tests;
+package types;
 
 import java.util.Objects;
 

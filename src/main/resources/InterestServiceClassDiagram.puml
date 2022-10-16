@@ -57,23 +57,33 @@ class Address {
 class AccountService {
     - dataBase: Database
 
-    + createPost(1,2,3,4,5):
-
     + LogIn()
     + LogOut()
     + CreateAccount()
 }
 
 class SearchService {
-    + getPostByWordSearch(words: String):List<Post>
-    + getPostsByFriends():List<Post>
-    + getPostByDate():List<Post>
-    + getByOnlyCategory(type:String):List<Post>
-    + getPostByUsername(type:String):List<Post>
+    - dataBase: Database
 
+    + getPostByWordSearch(words: String):List<Post>
+    + getPostsByAllFriends(username: String):List<Post>
+    + getPostsByFriends(usernames: List<String>):List<Post>
+    + getPostByDate():List<Post>
+    + getByOnlyInterest(interest:String):List<Post>
+    + getPostByUsername(username:String):List<Post>
 }
 
-AccountService *- DataBase
+class PostService{
+    - dataBase: Database
+
+    + addpost(post: Post):boolean
+    + removepost(post: Post):boolean
+    + createPost(...):
+}
+
+AccountService *-- DataBase
+SearchService *-- DataBase
+PostService *-- DataBase
 
 DataBase *-- Profile
 DataBase *-- Post

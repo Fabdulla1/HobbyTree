@@ -1,7 +1,7 @@
 package tests.types;
 
 import org.junit.jupiter.api.Test;
-import tests.Address;
+import types.Address;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

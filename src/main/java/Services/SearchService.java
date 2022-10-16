@@ -1,10 +1,12 @@
 package Services;
 
 import Databases.Database;
-import tests.Post;
-import tests.Profile;
+import types.Post;
+import types.PostsComparator;
+import types.Profile;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SearchService {
@@ -18,7 +20,7 @@ public class SearchService {
         return database.getAllPosts();
     }
 
-    public List<Post> getPostsByFriends(String username){
+    public List<Post> getPostsByAllFriends(String username){
         List<Post> posts = new ArrayList<>();
         for (Profile friendProfile : database.getAllProfiles().get(username).get_friendList()) {
             posts.addAll(friendProfile.get_posts());
@@ -26,9 +28,21 @@ public class SearchService {
         return posts;
     }
 
-    // come back
-    public List<Post> getPostByDate(){
-        return database.getAllPosts();
+    public List<Post> getPostsByFriends(List<String> usernames){
+        List<Post> posts = new ArrayList<>();
+        for (String username: usernames) {
+            for (Profile friendProfile : database.getAllProfiles().get(username).get_friendList()) {
+                posts.addAll(friendProfile.get_posts());
+            }
+        }
+        return posts;
+    }
+
+    public List<Post> getAllPostsByDate(){
+        PostsComparator postsComparator = new PostsComparator();
+        List<Post> postsByDate = database.getAllPosts();
+        Collections.sort(postsByDate, postsComparator);
+        return postsByDate;
     }
 
     public List<Post> getPostByUsername(String username){

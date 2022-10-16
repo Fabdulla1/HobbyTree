@@ -1,9 +1,9 @@
-package tests;
+package types;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Post {
+public class Post{
     private String username;
     private LocalDateTime date;
     private String title;
@@ -80,6 +80,5 @@ public class Post {
     public int hashCode() {
         return Objects.hash(getUsername(), getDate(), getTitle(), getInterest(), getDescription(), getAddress());
     }
-
 
 }

@@ -1,6 +1,7 @@
 package Services;
 
 import Databases.Database;
+import types.Profile;
 
 public class AccountService {
 
@@ -10,6 +11,14 @@ public class AccountService {
     public AccountService(Database database) {
         this.database = database;
         this.access = false;
+    }
+
+    public void CreateUser(String username, String passcode, Profile profile) {
+        try {
+            database.addUser(username, passcode, profile);
+        } catch (Exception e) {
+            System.out.println("Username is Already Taken");
+        }
     }
 
     public void logIn(String username, String passcode) {

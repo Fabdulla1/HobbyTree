@@ -1,9 +1,9 @@
 package tests.types;
 
 import org.junit.jupiter.api.Test;
-import tests.Address;
-import tests.Post;
-import tests.Profile;
+import types.Address;
+import types.Post;
+import types.Profile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

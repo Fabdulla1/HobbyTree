@@ -1,9 +1,10 @@
 package Databases;
 
-import Exceptions.UsernameAlreadyExists;
-import tests.Post;
-import tests.Profile;
+import Exceptions.UsernameAlreadyExistsException;
+import types.Post;
+import types.Profile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,12 +33,12 @@ public class Database {
      * @param username user's username
      * @param passcode user's passcode
      * @param profile user's profile
-     * @throws UsernameAlreadyExists if the username already exists
+     * @throws UsernameAlreadyExistsException if the username already exists
      */
-    public void addUser(String username, String passcode, Profile profile) throws UsernameAlreadyExists {
+    public void addUser(String username, String passcode, Profile profile) throws UsernameAlreadyExistsException {
         // We need to check if the username exist already b/c username are unique
         if (allUserNames.containsKey(username) || allProfiles.containsKey(username)) {
-            throw new UsernameAlreadyExists();
+            throw new UsernameAlreadyExistsException();
         }
         allUserNames.put(username, passcode);
         allProfiles.put(username, profile);
@@ -48,12 +49,12 @@ public class Database {
         allProfiles.remove(username);
     }
 
-    public void addPost(Post post) {
-        allPosts.add(post);
+    public boolean addPost(Post post) {
+        return allPosts.add(post);
     }
 
-    public void removePost(Post post) {
-        allPosts.remove(post);
+    public boolean removePost(Post post) {
+        return allPosts.remove(post);
     }
 
     public boolean checkUser(String username, String passcode) {
@@ -69,6 +70,6 @@ public class Database {
     }
 
     public List<Post> getAllPosts() {
-        return allPosts;
+        return new ArrayList<>(allPosts);
     }
 }

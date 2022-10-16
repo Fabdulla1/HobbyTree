@@ -4,8 +4,8 @@ import Databases.Database;
 import Services.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tests.Post;
-import tests.Profile;
+import types.Post;
+import types.Profile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,5 +70,10 @@ public class AccountServiceTests {
         Boolean access = acctService.getAccess();
 
         assertFalse(access);
+    }
+
+    @Test
+    public void createUser() {
+
     }
 }
