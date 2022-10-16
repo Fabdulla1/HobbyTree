@@ -57,9 +57,12 @@ class Address {
 class AccountService {
     - dataBase: Database
 
-    + LogIn()
-    + LogOut()
-    + CreateAccount()
+    + LogIn():
+    + LogOut():
+    + CreateAccount():
+    + getProfile(username: String): Profile
+    + addFriend(username: String, friend:String):
+    + removeFriend(username: String, friend:String):
 }
 
 class SearchService {
@@ -81,9 +84,9 @@ class PostService{
     + createPost(...):
 }
 
-Main *-- AccountService
-Main *-- SearchService
-Main *-- PostService
+Shell *-- AccountService
+Shell *-- SearchService
+Shell *-- PostService
 
 AccountService *-- DataBase
 SearchService *-- DataBase

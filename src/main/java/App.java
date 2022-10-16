@@ -19,23 +19,23 @@ public class App {
     private App() {}
 
     public static void setUpDatabase() {
-        Profile Bob = new Profile("bob123", "1/2/2003", "9161284767",
+        Profile Bob = new Profile("Bobby", "1/2/2003", "9161284767",
                 new Address("123", "Main Street", "14", "Berkeley", "CA",
                         "USA", "94720"), false);
 
-        Profile Dan = new Profile("dan123", "1/3/2003", "9096234567",
+        Profile Dan = new Profile("Danny Fenton", "1/3/2003", "9096234567",
                 new Address("124", "Elm Street", "12", "San Francisco", "CA",
                         "USA", "94728"), false);
 
-        Profile Niel = new Profile("niel123", "1/4/2003", "9161234836",
+        Profile Niel = new Profile("Niel Lien", "1/4/2003", "9161234836",
                 new Address("125", "Oak Street", "15", "Sacramento", "CA",
                         "USA", "99620"), true);
 
-        Profile John = new Profile("john123", "3/2/2003", "9161937567",
+        Profile John = new Profile("John Wick", "3/2/2003", "9161937567",
                 new Address("126", "Telegraph Street", "16", "Salt Lake City", "UT",
                         "USA", "96520"), true);
 
-        Profile Allison = new Profile("allison123", "5/2/2003", "9193752567",
+        Profile Allison = new Profile("Allison Stone", "5/2/2003", "9193752567",
                 new Address("127", "Durant Street", "17", "Berkeley", "CA",
                         "USA", "94721"), false);
 
@@ -66,17 +66,25 @@ public class App {
         Post bobPost2 = new Post(Bob.getUsername(), dates[1], "pizza", "Foods",
                 "I ate some pizza!", Bob.get_address());
 
-        Post danPost1 = new Post(Dan.getUsername(), dates[2], "Harry Potter", "Book",
-                "I read Harry Potter for the second time!", Dan.get_address());
+        Post danPost1 = new Post(Dan.getUsername(), dates[2], "Ramen", "Foods",
+                "Niel and I got Ramen Today!!", Dan.get_address());
 
-        Post nielPost1 = new Post(Niel.getUsername(), dates[3], "Swimming", "Sports",
-                "I swam in my pool", Niel.get_address());
+        Post nielPost1 = new Post(Niel.getUsername(), dates[3], "Ramen", "Foods",
+                "Danny and I got Ramen Today! He was so sweet!", Dan.get_address());
 
         Post johnPost1 = new Post(John.getUsername(), dates[4], "Hiking", "Sports",
-                "I read Harry Potter for the first time", John.get_address());
+                "I went hiking with my family today! We found a hatchet in a tree!", John.get_address());
 
         Post allisonPost1 = new Post(Allison.getUsername(), dates[5], "BTS", "Music",
                 "I love BTS", Allison.get_address());
+
+        Bob.addPost(bobPost1);
+        Bob.addPost(bobPost2);
+
+        Dan.addPost(danPost1);
+        Niel.addPost(nielPost1);
+        Allison.addPost(allisonPost1);
+        John.addPost(johnPost1);
 
         List<Post> posts = new ArrayList<>();
         posts.add(bobPost1);

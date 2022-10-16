@@ -57,7 +57,7 @@ public class SearchService {
     public List<Post> getByOnlyInterest(String interest) {
         List<Post> posts = new ArrayList<>();
         for (Post post : getAllPosts()) {
-            if (post.getInterest().equals(interest)) {
+            if (post.getInterest().equalsIgnoreCase(interest)) {
                 posts.add(post);
             }
         }

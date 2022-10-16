@@ -45,4 +45,11 @@ public class AccountService {
         Profile friend = database.getAllProfiles().get(friendName);
         self.addFriend(friend);
     }
+
+    public Profile getProfile(String username) {
+        return database.getProfile(username);
+    }
+
+
+
 }

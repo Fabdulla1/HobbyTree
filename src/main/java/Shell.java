@@ -24,28 +24,46 @@ public class Shell {
     }
 
     public static void main(String[] args) {
+        // Set up
         App.setUpDatabase();
         Shell shell = new Shell(App.getAccountService(), App.getPostService(), App.getSearchService());
 
-        System.out.println("~~ Latest Posts: ~~ \n");
+
+        // Latest News Page
+        System.out.println("\n~~ Latest Post: ALL ~~ \n");
         List<Post> posts = shell.searchService.getAllPosts();
         for (Post post: posts) {
             System.out.println(post.styledPost());
         }
 
+        // Creating a new User
+        System.out.println("New User! ");
         shell.accountService.CreateUser("fuzzyPenguinSlipplers", "helloWorld",
-                new Profile("Jim Carry", "10-2-2000", "234-2132-2321", null, false));
+                new Profile("Jim Carry", "10-2-2000", "234-2132-2321",
+                        new Address("4012", "Paint St.", "", "Keego Harobr", "MI",
+                                "USA", "48323"),
+                        false));
+        Profile jim = shell.accountService.getProfile("fuzzyPenguinSlipplers");
+        System.out.println(jim.styled() + "\n");
 
-        shell.accountService.addFriend("dan123", "bob123");
 
-        List<Post> friendsPosts = shell.searchService.getPostsByAllFriends("dan123");
-        System.out.println("~~ Bob123: ~~ \n");
+        // Adding friend
+        shell.accountService.addFriend("fuzzyPenguinSlipplers", "bob123");
+
+        // Getting Friend's Posts
+        Profile bob = shell.accountService.getProfile("bob123");
+        System.out.println("added: " + bob.styled() + "\n");
+        List<Post> friendsPosts = shell.searchService.getPostsByAllFriends("fuzzyPenguinSlipplers");
         for (Post post: friendsPosts) {
             System.out.println(post.styledPost());
         }
 
-
-
+        // Search by Food
+        List<Post> foodPosts = shell.searchService.getByOnlyInterest("foods");
+        System.out.println(">> foods <<");
+        for (Post post: foodPosts) {
+            System.out.println(post.styledPost());
+        }
 
     }
 }

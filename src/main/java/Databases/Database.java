@@ -28,6 +28,10 @@ public class Database {
         return allUserNames.get(username).equals(passcode);
     }
 
+    public Profile getProfile(String username) {
+        return allProfiles.get(username);
+    }
+
     /**
      * Create a new User and Profile
      * @param username user's username

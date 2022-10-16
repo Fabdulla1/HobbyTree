@@ -96,7 +96,7 @@ public class Post{
     }
 
     public String styledPost() {
-        return String.format("* %s *%n %s%n%s%n%s%n%s%n%s%n",
+        return String.format("* %s *%n%s%n@%s%n%s%n%s%n%s%n",
                 title, interest, username, date.format(formatter),  description, address.styled());
     }
 }

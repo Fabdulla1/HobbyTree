@@ -126,8 +126,27 @@ public class Profile {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "username='" + username + '\'' +
+                ", passcode='" + passcode + '\'' +
+                ", _name='" + _name + '\'' +
+                ", _birthday='" + _birthday + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", _address=" + _address +
+                ", _status=" + _status +
+                ", _friendList=" + _friendList +
+                ", _interests=" + _interests +
+                ", _posts=" + _posts +
+                '}';
+    }
+
+    public String styled() {
+        return String.format("@%s's Profile: %n -%s%n -%s%n -%s%n -%s",
+                username, _name, _birthday, phoneNumber, _address.styled());
+    }
 
     // + getFriendsFromActions():List<profile>
     // + getFriendsFromAddress():List<profile>
-
 }
