@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Profile {
+    - name:String
+    - dob:String
+    - phone:String
+    - address:Address
+    - visibility:Boolean
+    - Friends:List<Profiles>
+    - Interests:List<Interestgi
+
+    + addFriend():
+    + removeFriend():
+
+}
+
+class Interest {
+    - action:Action
+    - address:Address
+    - review:Review
+
+    + getFriendsFromActions():List<profile>
+    + getFriendsFromAddress():List<profile>
+}
+
+class Address {
+    + code:String
+    + city:String
+    + state:String
+    + Country:String
+    + zipcode:String
+
+}
+
+class Action {
+    type:String
+    description: String
+}
+
+class Review {
+    review:String
+}
+
+class App {}
+class SignUpService {}
+
+Profile *-- Interest
+Profile *-- Address
+
+Interest *-- Address
+Interest *-- Action
+Interest *-- Review
+
+
+@enduml
