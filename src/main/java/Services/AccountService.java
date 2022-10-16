@@ -13,9 +13,13 @@ public class AccountService {
         this.access = false;
     }
 
+    // Create a method to add a phto from java images
+
     public void CreateUser(String username, String passcode, Profile profile) {
         try {
             database.addUser(username, passcode, profile);
+            profile.setUsername(username);
+            profile.setPasscode(passcode);
         } catch (Exception e) {
             System.out.println("Username is Already Taken");
         }

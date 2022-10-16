@@ -80,4 +80,15 @@ public class DatabaseTests {
         assertEquals(0, allUserNames.size());
     }
 
+    @Test
+    public void getPosts() {
+        database.addPost(null);
+        database.addPost(null);
+        database.addPost(null);
+
+        List<Post> posts = database.getAllPosts();
+
+        assertEquals(3, posts.size());
+    }
+
 }

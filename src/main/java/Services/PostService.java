@@ -18,11 +18,13 @@ public class PostService {
         return new Post(username, date, title, interest, description, address);
     }
 
-    public boolean addpost(Post post)  {
+    public boolean addpost(Post post) {
+        database.getAllProfiles().get(post.getUsername()).addPost(post);
         return database.addPost(post);
     }
 
     public boolean removePost(Post post) {
+        database.getAllProfiles().get(post.getUsername()).addPost(post);
         return database.removePost(post);
     }
 }

@@ -41,7 +41,7 @@ public class SearchService {
     public List<Post> getAllPostsByDate(){
         PostsComparator postsComparator = new PostsComparator();
         List<Post> postsByDate = database.getAllPosts();
-        Collections.sort(postsByDate, postsComparator);
+        postsByDate.sort(postsComparator);
         return postsByDate;
     }
 
@@ -56,7 +56,7 @@ public class SearchService {
 
     public List<Post> getByOnlyInterest(String interest) {
         List<Post> posts = new ArrayList<>();
-        for (Post post : database.getAllPosts()) {
+        for (Post post : getAllPosts()) {
             if (post.getInterest().equals(interest)) {
                 posts.add(post);
             }

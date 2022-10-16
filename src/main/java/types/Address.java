@@ -12,6 +12,16 @@ public class Address {
     private String country;
     private String zipCode;
 
+    public Address() {
+        this.buildingNumber = "";
+        this.streetName = "";
+        this.aptNumber = "";
+        this.city = "";
+        this.state = "";
+        this.country = "";
+        this.zipCode = "";
+    }
+
     public Address(String buildingNumber, String streetName, String aptNumber, String city, String state, String country, String zipCode) {
         this.buildingNumber = buildingNumber;
         this.streetName = streetName;

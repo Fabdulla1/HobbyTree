@@ -70,6 +70,8 @@ public class Database {
     }
 
     public List<Post> getAllPosts() {
-        return new ArrayList<>(allPosts);
+        List<Post> copyPosts = new ArrayList<>();
+        copyPosts.addAll(allPosts);
+        return copyPosts;
     }
 }
