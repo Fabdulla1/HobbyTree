@@ -113,4 +113,10 @@ public class Address {
     public int hashCode() {
         return Objects.hash(getBuildingNumber(), getStreetName(), getAptNumber(), getCity(), getState(), getCountry(), getZipCode());
     }
+
+    public String styled() {
+        return String.format("%s %s %s%n%s, %s, %s %s",
+                buildingNumber, streetName, aptNumber,
+                city, state, country, zipCode);
+    }
 }

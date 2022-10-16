@@ -1,6 +1,7 @@
 package types;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Post{
@@ -10,6 +11,7 @@ public class Post{
     private String interest;
     private String description;
     private Address address;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public Post(String username, LocalDateTime date, String title, String interest, String description, Address address) {
         this.username = username;
@@ -81,4 +83,20 @@ public class Post{
         return Objects.hash(getUsername(), getDate(), getTitle(), getInterest(), getDescription(), getAddress());
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "username='" + username + '\'' +
+                ", date=" + date +
+                ", title='" + title + '\'' +
+                ", interest='" + interest + '\'' +
+                ", description='" + description + '\'' +
+                ", address=" + address +
+                '}';
+    }
+
+    public String styledPost() {
+        return String.format("* %s *%n %s%n%s%n%s%n%s%n%s%n",
+                title, interest, username, date.format(formatter),  description, address.styled());
+    }
 }

@@ -39,4 +39,10 @@ public class AccountService {
     public boolean getAccess() {
         return access;
     }
+
+    public void addFriend(String username, String friendName) {
+        Profile self = database.getAllProfiles().get(username);
+        Profile friend = database.getAllProfiles().get(friendName);
+        self.addFriend(friend);
+    }
 }
