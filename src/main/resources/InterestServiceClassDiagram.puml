@@ -81,6 +81,10 @@ class PostService{
     + createPost(...):
 }
 
+Main *-- AccountService
+Main *-- SearchService
+Main *-- PostService
+
 AccountService *-- DataBase
 SearchService *-- DataBase
 PostService *-- DataBase
