@@ -1,16 +1,17 @@
 package types;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Post {
     private String username;
-    private String date;
+    private LocalDateTime date;
     private String title;
     private String interest;
     private String description;
     private Address address;
 
-    public Post(String username, String date, String title, String interest, String description, Address address) {
+    public Post(String username, LocalDateTime date, String title, String interest, String description, Address address) {
         this.username = username;
         this.date = date;
         this.title = title;
@@ -27,11 +28,11 @@ public class Post {
         this.username = username;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

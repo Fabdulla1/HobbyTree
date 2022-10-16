@@ -94,33 +94,33 @@ public class Profile {
         this._status = _status;
     }
 
-    private void addFriend(Profile friend) {
+    public void addFriend(Profile friend) {
         if (!_friendList.contains(friend)) {
             _friendList.add(friend);
         }
     }
 
-    private void removeFriend(Profile friend) {
+    public void removeFriend(Profile friend) {
         if (_friendList.contains(friend)) {
             _friendList.remove(friend);
         }
     }
 
-    private void addInterests(String interest) {
+    public void addInterests(String interest) {
         _interests.add(interest);
     }
 
-    private void removeInterests(String interest) {
+    public void removeInterests(String interest) {
         _interests.remove(interest);
     }
 
-    private void addPost(Post post) {
+    public void addPost(Post post) {
         if (!_posts.contains(post)) {
             _posts.add(post);
         }
     }
 
-    private void removePost(Post post) {
+    public void removePost(Post post) {
         if (_posts.contains(post)) {
             _posts.remove(post);
         }

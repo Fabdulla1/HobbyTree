@@ -13,13 +13,18 @@ public class AccountService {
         this.access = false;
     }
 
-    public void logIn(String Username, String Passcode) {
+    public void logIn(String username, String passcode) {
         // check if Username and Passcode are correct
-
-        access = true;
+        if (database.userExists(username) && database.checkPasscode(username, passcode)) {
+            access = true;
+        }
     }
 
-    public void logOut(String Username, String Passcode) {
-        boolean access = false;
+    public void logOut() {
+        access = false;
+    }
+
+    public boolean getAccess() {
+        return access;
     }
 }

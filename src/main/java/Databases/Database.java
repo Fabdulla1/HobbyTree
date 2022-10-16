@@ -9,14 +9,22 @@ import java.util.Map;
 
 public class Database {
 
-    Map<String, String> allUserNames;
-    Map<String, Profile> allProfiles;
-    List<Post> allPosts;
+    private Map<String, String> allUserNames;
+    private Map<String, Profile> allProfiles;
+    private List<Post> allPosts;
 
     public Database(Map<String, String> allUserNames, Map<String, Profile> allProfiles, List<Post> allPosts) {
         this.allUserNames = allUserNames;
         this.allProfiles = allProfiles;
         this.allPosts = allPosts;
+    }
+
+    public boolean userExists(String username) {
+        return allUserNames.containsKey(username);
+    }
+
+    public boolean checkPasscode(String username, String passcode) {
+        return allUserNames.get(username).equals(passcode);
     }
 
     /**
